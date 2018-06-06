@@ -47,7 +47,7 @@
 </head>
 <body>
 	<nav>
-		<a href="home.html" class="logoNav">
+		<a href="home.php" class="logoNav">
 			<img src = assets/logo.svg alt="logo" class="logoNav">
 		</a>
 		<form>
