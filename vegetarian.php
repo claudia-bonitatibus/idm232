@@ -1,16 +1,7 @@
 <?php
 	require "includes/db.php";
-
-	// Step 2: Preform Database Query
-	$main = "main";
-	$query = "SELECT * FROM {$main}";
-	$result = mysqli_query($connection, $query);
-
-	// Check there are no errors with our SQL statement
-	if (!$result) {
-			die ("Database query failed.");
-	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -197,14 +188,6 @@
 		// Step 5: Close Database Connection
 		mysqli_close($connection);
 	?>	
-	<?php
-    $text = "™©®è";
-    echo htmlentities($text);
-    ?>	
-	<?php
-    $text = "™©®è";
-    echo htmlentities($text);
-   	?>
 	</main>
 	<footer>
 		<div class="help">
