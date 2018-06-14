@@ -1,28 +1,24 @@
 <?php
 	require "includes/db.php";
-?>
 
-<!------ SEARCH: FIRST ATTEMPT ------>
-<?php
 	if (isset($_GET['keyword'])) {
 		$searchRecipes = $_GET['keyword'];
-		$searchRecipes = preg_replace( "#[^0-9a-z]#", "", $searchRecipes);
-		// Find all tags that match what the user just searched
-		$results = mysqli_query($connection,"SELECT * FROM tags WHERE tag LIKE '$searchRecipes' ");
+		//FIND ALL CONTENTS THAT MATCH WHAT THE USER SEARCHED
+		$results = mysqli_query($connection,"SELECT * FROM main WHERE title LIKE '%$searchRecipes%' OR description LIKE '%$searchRecipes%' OR subtitle LIKE '%$searchRecipes%'");
 		$resultsCount =  mysqli_num_rows($results);
 	}
 
 
 $recipe_ids = [];
-// Loop through all results and find recipe id
+// LOOP THROUGH ALL RESULTS AND FIND RECIPE ID
 while ( $row = mysqli_fetch_assoc($results) ) { 
 	$recipe_ids[] = $row['recipe_id'];
 }
 
-// Convert array to string seperated by commas
+// CONVERT ARRAY TO STRING SEPERATED BY COMMAS
 $recipe_ids = join(',', $recipe_ids);
 
-// Get recipes from db where id matches 'main' id;
+//GET RECIPE FROM THE DATABASE WHER THE ID MATCHES THE MAIN ID
 $recipes = mysqli_query($connection, "SELECT * FROM main WHERE recipe_id in ($recipe_ids) ");
 ?>
 <?php
@@ -44,7 +40,7 @@ $recipes = mysqli_query($connection, "SELECT * FROM main WHERE recipe_id in ($re
 		<div class="resultGrid">
 
 		<?php 
-		// Check to see if we have any results
+		// CHECK TO SEE IF THERE ARE RESULTS
 		if ($resultsCount > 0) {
 
 			while ( $row = mysqli_fetch_assoc($recipes) ) { 
@@ -52,9 +48,7 @@ $recipes = mysqli_query($connection, "SELECT * FROM main WHERE recipe_id in ($re
 		?>
 		<!-- RESULT 1 -->
 			<div class="searchResult">
-<!-- 				<a href="recipe.php"> -->
 						<img src = images/<?php echo $row['recipe_img']; ?>.jpg alt= <?php echo $row['title']; ?>>
-<!-- 				</a> -->
 				<div class="text">
 					<a href="recipe.php?id=<?php echo $recipe_id; ?>">
 						<h3><?php echo $row['title']; ?></h3>
@@ -72,8 +66,6 @@ $recipes = mysqli_query($connection, "SELECT * FROM main WHERE recipe_id in ($re
 		
 	} else {
 		?> 
-
-	<main>
 			<p>No results found for your search</p>
 			<p>There are no recipes in our database related to your search</p>		
 
