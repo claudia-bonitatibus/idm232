@@ -16,6 +16,19 @@ a{
 	text-decoration: none;
 }
 
+.descriptionCardText{
+	line-height: 150%;
+	padding: 0 2rem;
+}
+
+.displayRecipes, .resultGrid {
+	padding: 2rem .5rem;
+}
+
+.displaySearchInput {
+	padding: 2rem 6% 0 6%;	
+}
+
 nav, footer{
 	height: 4rem;
 	width: 100%;
@@ -36,29 +49,14 @@ form{
 	width: 100vw;
 }
 
-.descriptionCardText{
-	line-height: 150%;
-	padding: 0 2rem;
-}
-
-.displayRecipes, .resultGrid {
-	padding: 2rem .5rem;
-}
-
-.displaySearchInput {
-	padding: 2rem 6% 0 6%;	
-}
-
-.search{
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	width: 100%;
-}
-
 form button{
 	background-color: transparent;
 	border: none;
+}
+
+.help{
+	padding-top: .5rem;
+	height: 2.75rem;
 }
 
 .inputChannel{
@@ -86,9 +84,11 @@ form button{
 	transition: 1s;
 }
 
-.help{
-	padding-top: .5rem;
-	height: 2.75rem;
+.search{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
 }
 
 .searchButton {
@@ -131,25 +131,7 @@ h3{
 a h3:hover{
 	text-decoration: underline; 
 	transition: .5s;
-}
-	
-.helpHead{
-	background-color: #ffdb7a; 
-	height: 7.5rem;
-	margin-top: .5rem;
-}
-
-p {
-	color:#4e5256;
-	font-family: "Open Sans", sans-serif;
-	font-size: 1rem;
-	line-height: 160%;
-}
-
-.sectionHead{
-	height: 15rem;
-	background-color: #4e5256;
-}
+}	
 
 .comfortFoodBanner{
 	background-image:url('assets/comfort-foods-banner.jpg');
@@ -157,33 +139,57 @@ p {
 	background-size: 110% auto;
 	background-position: center;
 }
+
 .easyBanner{
 	background-image:url('assets/easy-banner.jpg');
 	background-repeat: no-repeat;
 	background-size: 110% auto;
 	background-position: center;
 }
+
+.helpHead{
+	background-color: #ffdb7a; 
+	height: 7.5rem;
+	margin-top: .5rem;
+}
+
 .inspiredDishesBanner{
 	background-image:url('assets/inspired-dishes-banner.jpg');
 	background-repeat: no-repeat;
 	background-size: 110% auto;
 	background-position: center;
 }
-.vegetarianBanner{
-	background-image:url('assets/vegetarian-banner.jpg');
-	background-repeat: no-repeat;
-	background-size: 110% auto;
-	background-position: center;
+p {
+	color:#4e5256;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1rem;
+	line-height: 160%;
 }
 
 .recipeHead, .helpHead{
 	border-bottom: 10px solid #fbc226;
 }
 
+.recipeMain{
+	max-width: 1100px;
+}
+
+.sectionHead{
+	height: 15rem;
+	background-color: #4e5256;
+}
+
 .sectionHead p, .recipeHead p{
 	color: #e0e0e0;
 	font-family: "Open Sans", serif;
 	text-align: center;
+}
+
+.vegetarianBanner{
+	background-image:url('assets/vegetarian-banner.jpg');
+	background-repeat: no-repeat;
+	background-size: 110% auto;
+	background-position: center;
 }
 
 @media only screen and (max-width: 400px){
@@ -263,7 +269,7 @@ p {
 		text-align: left;
 	}
 
-	.recipeImage, 	.ingredientsImage, .stepImage{
+	.recipeImage, .ingredientsImage, .stepImage{
 		width:100%;
 		padding: 1rem;
 		text-align: center;
@@ -291,19 +297,6 @@ p {
 		width: 100%;
 	}
 
-/*	h3{
-		background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ffdb7a 50%);
-		background-position: -0% 0;
-		background-size: 200% auto;
-		transition: background-position 0.5s ease-out;
-	}
-
-	a h3:hover{
-		background-position: -99.99% 0;
-		color: #607ca0;
-		transition: .5s;
-	}*/
-
 	.sectionHead, .recipeHead {
 		height:18rem;
 	}
@@ -316,13 +309,13 @@ p {
 	.resultGrid {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: flex-start;
 		padding: 1.75rem 1rem 2rem 1rem;
 	}
 
 	.searchResult {
 		text-align: center;
-		width: 30%;
+		width: 50%;
 		padding: 1.5rem 4rem;
 	}
 
@@ -341,7 +334,6 @@ p {
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		/*background-color: #ffdb7a; */
 		padding: 0 2rem;
 	}
 
@@ -350,12 +342,18 @@ p {
 		padding: 1rem 1rem 1rem 0;
 	}
 
+	
+	.ingredientsImage{
+		width: 34%;
+		height: auto;
+		padding-left: 1rem;
+	}
+
 	.ingredientsText{
 		width: 65%;
 		padding: 1rem 1rem 1rem 0;
 	}
 
-/*DESIGN WITHOUT BACKGROUND IMAGE*/
 	.recipeHead{
 		background-color: #ffdb7a; 
 		height: 10.25rem;
@@ -375,30 +373,41 @@ p {
 	}
 
 	.recipeImage{
-		width:12.5rem;
-		height:12.5rem;
+		width:20vw;
+		height:20vw;
 		padding-left: 1rem;
 	}
 
-	.ingredientsImage, .stepImage{
-		width: 33%;
-		height: auto;
-		padding-left: 1rem;
-	}
 	 .stepImage{
+	 	width: 33%;
+		height: auto;
 		padding: 1rem;
 	}
 
 }
 
-@media only screen and (min-width: 1000px){
-	.descriptionCardText{
-		width: 78%;
-		padding: 1rem 1rem 1rem 0;
+@media only screen and (min-width: 900px){
+	.searchResult {
+		width: 33%;
 	}
 }
 
+
+@media only screen and (min-width: 1150px){
+	.descriptionCardText{
+		width: 700px;
+		padding: 1rem 1rem 1rem 0;
+		margin-right: 2.5rem; 
+	}
+
+}
+
 @media only screen and (min-width: 1200px){
+
+	.descriptionCardText{
+		padding-left: 1rem;
+	}
+
 	.displayRecipes {
 		display: flex;
 		flex-wrap: wrap;
@@ -412,6 +421,27 @@ p {
 		padding: 1.5rem 4rem;
 	}
 
+	.recipeHead p{
+			margin-top: 1rem;
+	}
+
+	.recipeHead h1, .recipeHead p{
+		width: 1100px;
+		padding-left: 0;
+		margin: 0 auto;
+			transition: 1s;		
+	}
+
+	.recipeImage{
+		width:18rem;
+		height:18rem;
+		padding-left: 1rem;
+	}
+
+	.recipeMain{
+		margin: 0 auto;
+	}
+
 	.sectionHead{
 		height:21rem;
 	}
@@ -422,14 +452,6 @@ p {
 
 	.searchResult img {
 		width: 100%;
-	}
-
-	.descriptionCardText{
-		width: 82%;
-		padding: 1rem 1rem 1rem 0;
-	}
-	p{
-		max-width: 50rem;
 	}
 }
 
