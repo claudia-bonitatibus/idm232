@@ -9,15 +9,16 @@
 	require "includes/header.php";
 ?>
 
-	<?php
-		if(isset($_GET['id']) && $_GET['id'] !== ''){
+<?php
+	if(isset($_GET['id']) && $_GET['id'] !== ''){
 		  $recipe_id = $_GET['id'];
-		} else {
-		  echo "failed";
-		}
-		$results = mysqli_query($connection,"SELECT * FROM main WHERE recipe_id LIKE '$recipe_id' ");
-		while ($mainRow = mysqli_fetch_assoc($results)) {
-			$stepNumber++;
+	} 
+	else {
+		 echo "failed";
+	}
+	$results = mysqli_query($connection,"SELECT * FROM main WHERE recipe_id LIKE '$recipe_id' ");
+	while ($mainRow = mysqli_fetch_assoc($results)) {
+		$stepNumber++;
 	?>
 	<div class="recipeHead">
 			<!-- SECTION IMAGE -->
@@ -25,6 +26,7 @@
 			<p><?php echo $mainRow['subtitle']; ?> </p>
 	</div>
 	<main>
+		<div class="recipeMain">
 		<div class="descriptionCard">
 			<img class = "recipeImage" src = images/<?php echo $mainRow['recipe_img'];?>.jpg alt="filler content">
 			<p class="descriptionCardText"><?php echo $mainRow['description']; ?></p>
@@ -69,7 +71,8 @@
 
 			// Step 5: Close Database Connection
 			mysqli_close($connection);
-		?>			
+		?>
+		</div>			
 	</main>
 <?php
 	require "includes/footer.php";

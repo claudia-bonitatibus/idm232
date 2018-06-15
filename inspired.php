@@ -198,14 +198,6 @@
 		// Step 5: Close Database Connection
 		mysqli_close($connection);
 	?>	
-	<?php
-    $text = "™©®è";
-    echo htmlentities($text);
-    ?>
-	<?php
-    $text = "™©®è";
-    echo htmlentities($text);
-   	?>
 	</main>
 	<footer>
 		<div class="help">

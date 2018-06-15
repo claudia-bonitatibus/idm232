@@ -1,35 +1,7 @@
 <?php
 	require "includes/db.php";
+	require "includes/header.php";
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	content = "width= device-width,
-	initial-scale= 1.0"
-	>
-	
-	<title>Filtered Results</title>
-
-	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">
-	<link rel="stylesheet" href="cooking-website.css">
-</head>
-<body>
-	<nav>
-		<a href="home.php" class="logoNav">
-			<img src = assets/logo.svg alt="logo" class="logoNav">
-		</a>
-		<div class="search">
-			<input type="text" class="inputChannel" placeholder="Search...">
-		</div>
-
-		<a href="results.php">
-			<img src = assets/search-icon.svg alt="search" class="searchButton">
-		</a>
-	</nav>
-
 	<main>
 				<div class="sectionHead vegetarianBanner">
 			<!-- SECTION IMAGE -->
@@ -189,12 +161,6 @@
 		mysqli_close($connection);
 	?>	
 	</main>
-	<footer>
-		<div class="help">
-			<a href="help.html" class="logoNav">
-			<img src = assets/help.svg alt="help" class="helpFooter">
-			</a>
-		</div>
-	</footer>
-</body>
-</html>
+<?php
+	require "includes/footer.php";
+?>
